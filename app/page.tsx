@@ -1,7 +1,15 @@
-export default function Home() {
+import { Container, Footer, Header, Hero } from "@/components";
+
+const Home = () => {
   return (
-    <main>
-      <h1>Hello World</h1>
+    <main className="overflow-hidden bg-white">
+      <Container>
+          <Header />
+          <Hero />
+          <Footer />
+      </Container>
     </main>
   );
-}
+};
+
+export default Home;
