@@ -4,7 +4,7 @@ interface ContainerProps {
 
 const Container = ({ children }: ContainerProps) => {
   return (
-    <div className="mx-12 md:mx-24 lg:mx-48 my-12 md:my-14 lg:my-16">
+    <div className="mx-8 md:mx-20 lg:mx-32 xl:mx-48 my-8 md:my-12 lg:my-16">
       {children}
     </div>
   );
