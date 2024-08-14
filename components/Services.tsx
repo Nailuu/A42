@@ -6,12 +6,20 @@ interface ServicesProps {
 
 const Services = ({ className }: ServicesProps) => {
   return (
-    <section className={`pt-2 flex flex-col gap-4 ${className ?? ""}`}>
-      <h2 className="text-white text-center font-bold text-2xl mt-4" id="services">
+    <section
+      className={`pt-2 flex flex-col items-center gap-4 md:gap-8 lg:gap-10 xl:gap-14 2xl:gap-24 pb-6 md:pb-10 lg:pb-0 ${
+        className ?? ""
+      }`}
+    >
+      <h2
+        className="text-white font-bold text-2xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl mt-4 md:mt-6 lg:mt-0"
+        id="services"
+      >
         Services
       </h2>
-      <div className="grid justify-center gap-4 px-4 py-4">
+      <div className="grid md:grid-cols-2 2xl:grid-cols-3 max-w-[1350px] justify-center items-center gap-4 lg:gap-6 px-4 py-4">
         <ServicesCard
+          className="md:justify-self-end"
           mainIcon="brush.svg"
           mainIconAlt="Painting brush"
           title="Design and development of showcase websites (CRM)"
@@ -23,6 +31,7 @@ const Services = ({ className }: ServicesProps) => {
           icon3alt="Shopify logo"
         />
         <ServicesCard
+          className="md:justify-self-start"
           mainIcon="tools.svg"
           mainIconAlt="Repair tools"
           title="Maintenance and technical support for CRM websites"
@@ -34,6 +43,7 @@ const Services = ({ className }: ServicesProps) => {
           icon3alt="Shopify logo"
         />
         <ServicesCard
+          className="md:justify-self-end"
           mainIcon="terminal.svg"
           mainIconAlt="Computer terminal"
           title="Development of web applications"
@@ -45,16 +55,19 @@ const Services = ({ className }: ServicesProps) => {
           icon3alt="Angular logo"
         />
         <ServicesCard
+          className="md:justify-self-start"
           mainIcon="robotic-arm.svg"
           mainIconAlt="Robotic arm"
           title="Automation of process and workflows using AI"
         />
         <ServicesCard
+          className="md:justify-self-end"
           mainIcon="json.svg"
           mainIconAlt="JSON data object"
           title="Development and integration of APIs"
         />
         <ServicesCard
+          className="md:justify-self-start"
           mainIcon="unknown.svg"
           mainIconAlt="Unknown document"
           title="Contact us"

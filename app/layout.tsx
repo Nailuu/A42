@@ -5,7 +5,7 @@ import "./globals.css";
 const jakarta = Plus_Jakarta_Sans({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "42 Junior Enterprise",
+  title: "42 Luxembourg Junior Enterprise",
   description:
     "42 Luxembourg Junior Enterprise offers IT services at competitive rates. Our skilled students deliver quality results for your business needs.",
 };
