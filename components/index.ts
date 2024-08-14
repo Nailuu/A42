@@ -1,15 +1,21 @@
 import Header from "./Header"
 import Container from "./Container"
 import Footer from "./Footer"
-import MenuIcon from "./MenuIcon"
 import Hero from "./Hero"
 import Services from "./Services"
+import WhoAreWe from "./WhoAreWe"
+import WhatIs42 from "./WhatIs42"
+import WhyUs from "./WhyUs"
+import ContactForm from "./ContactForm"
 
 export {
     Header,
     Container,
     Footer,
-    MenuIcon,
     Hero,
-    Services
+    Services,
+    WhoAreWe,
+    WhatIs42,
+    WhyUs,
+    ContactForm
 }

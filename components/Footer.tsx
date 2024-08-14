@@ -1,7 +1,9 @@
-const Footer = () => {
-  return (
-    <div>Footer</div>
-  )
+interface FooterProps {
+  className?: string;
 }
 
-export default Footer
+const Footer = ({ className }: FooterProps) => {
+  return <footer className={`pt-0 ${className ?? ""}`}></footer>;
+};
+
+export default Footer;
