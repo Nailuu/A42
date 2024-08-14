@@ -1,11 +1,14 @@
 interface ContainerProps {
   children: React.ReactNode;
+  className?: string;
 }
 
-const Container = ({ children }: ContainerProps) => {
+const Container = ({ children, className }: ContainerProps) => {
   return (
-    <div className="mx-8 md:mx-20 lg:mx-32 xl:mx-48 my-8 md:my-12 lg:my-16">
-      {children}
+    <div className={`${className ?? ""}`}>
+      <div className="mx-8 md:mx-20 lg:mx-32 xl:mx-48 2xl:mx-64">
+        {children}
+      </div>
     </div>
   );
 };

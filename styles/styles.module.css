@@ -1,0 +1,32 @@
+.background_gradient_dark_blue {
+    background: linear-gradient(102.958deg, #040A1B 0%, #061743 100%);
+}
+
+.services_card_text {
+    background-image: linear-gradient(99.608deg, rgba(255, 255, 255, 0.786) 0%, rgb(255, 255, 255) 100%);
+    -webkit-background-clip: text; /* Clip the background to the text */
+    -webkit-text-fill-color: transparent; /* Set the text color to transparent to show the background */
+    background-clip: text;
+    color: transparent; /* Fallback for older browsers */
+}
+
+
+.services_card {
+    position: relative;
+    background-color: rgba(0, 0, 0, 0);
+    z-index: 1;
+    overflow: hidden; /* Ensure the pseudo-element doesn’t overflow */
+  }
+
+.services_card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: inherit;
+    background: linear-gradient(99.608deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.2) 100%);
+    z-index: -1;
+}
+  
