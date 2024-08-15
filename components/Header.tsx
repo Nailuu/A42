@@ -11,7 +11,7 @@ const Header = ({ className }: HeaderProps) => {
     >
       <div className="flex gap-2 xl:gap-4 items-center">
         <img
-          className="w-8 md:w-10 lg:w-12 xl:w-16 h-8 md:h-10 lg:h-12 xl:h-16 text-[#070C1B]"
+          className="w-8 md:w-10 lg:w-12 xl:w-16 h-8 md:h-10 lg:h-12 xl:h-16"
           alt="42 Luxembourg Junior Enterprise Logo"
           src="/logo.svg"
         />

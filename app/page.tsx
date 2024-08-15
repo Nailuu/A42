@@ -43,11 +43,13 @@ const Home = () => {
           <WhyUs />
         </Container>
 
-        <Container className="snap-start">
+        <Container className="snap-start lg:h-screen lg:flex lg:items-center lg:justify-center">
           <ContactForm />
         </Container>
 
-        <Container className={"snap-start " + styles.background_gradient_dark_blue}>
+        <Container
+          className={"snap-start " + styles.background_gradient_dark_blue}
+        >
           <Footer />
         </Container>
       </div>

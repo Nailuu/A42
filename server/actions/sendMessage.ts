@@ -15,7 +15,7 @@ const sendMessage = async (formData: any) => {
 
     const mail = {
         from: process.env.SMTP_USER,
-        to: process.env.ASSOCATION_EMAIL,
+        to: process.env.ASSOCIATION_EMAIL,
         replyTo: formData.email,
         subject: `[JR42] - New Contact Form Submission`,
         html: `

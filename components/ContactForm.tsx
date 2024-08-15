@@ -17,17 +17,24 @@ const ContactForm = ({ className }: ContactFormProps) => {
 
   const handleSubmit = async () => {
     const result = await sendMessage({
-      firstName: document.querySelector("#firstName")?.value,
-      lastName: document.querySelector("#lastName")?.value,
-      email: document.querySelector("#email")?.value,
-      company: document.querySelector("#company")?.value,
-      title: document.querySelector("#subject")?.value,
-      message: document.querySelector("#message")?.value,
+      firstName:
+        (document.querySelector("#firstName") as HTMLInputElement)?.value ?? "",
+      lastName:
+        (document.querySelector("#lastName") as HTMLInputElement)?.value ?? "",
+      email:
+        (document.querySelector("#email") as HTMLInputElement)?.value ?? "",
+      company:
+        (document.querySelector("#company") as HTMLInputElement)?.value ?? "",
+      title:
+        (document.querySelector("#subject") as HTMLInputElement)?.value ?? "",
+      message:
+        (document.querySelector("#message") as HTMLTextAreaElement)?.value ??
+        "",
     });
 
     setFormStatus(result);
 
-    const form = document.querySelector("#form");
+    const form = document.querySelector("#form") as HTMLFormElement;
     if (form && formStatus?.success) {
       form.reset();
     }
@@ -35,13 +42,17 @@ const ContactForm = ({ className }: ContactFormProps) => {
 
   return (
     <>
-      <hr className="w-full border-t-2 mb-12 md:mb-16 lg:mb-24 xl:mb-32" />
-      <section className={`text-[#070C1B] pb-4 ${className ?? ""}`}>
+      <hr
+        id="contact"
+        className="w-full border-t-2 mb-12 md:mb-16 lg:mb-24 xl:mb-32 2xl:mb-24"
+      />
+      <section
+        className={`text-[#070C1B] pb-4 mb-8 lg:mb-12 xl:mb-16 ${
+          className ?? ""
+        }`}
+      >
         <div className="flex flex-col gap-2 lg:mb-12 xl:mb-16">
-          <h3
-            id="contact"
-            className="font-bold text-lg md:text-xl lg:text-2xl xl:text-3xl"
-          >
+          <h3 className="font-bold text-lg md:text-xl lg:text-2xl xl:text-3xl">
             We'd love to hear about your project
           </h3>
           <p className="text-[#848484] text-sm md:text-base lg:text-lg xl:text-xl xl:w-3/4">
