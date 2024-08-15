@@ -19,7 +19,7 @@ const Services = ({ className }: ServicesProps) => {
       </h2>
       <div className="grid md:grid-cols-2 2xl:grid-cols-3 max-w-[1350px] justify-center items-center gap-4 lg:gap-6 px-4 py-4">
         <ServicesCard
-          className="md:justify-self-end"
+          className="md:justify-self-end hover:-skew-y-1"
           mainIcon="brush.svg"
           mainIconAlt="Painting brush"
           title="Design and development of showcase websites (CRM)"
@@ -31,7 +31,7 @@ const Services = ({ className }: ServicesProps) => {
           icon3alt="Shopify logo"
         />
         <ServicesCard
-          className="md:justify-self-start"
+          className="md:justify-self-start hover:skew-y-1"
           mainIcon="tools.svg"
           mainIconAlt="Repair tools"
           title="Maintenance and technical support for CRM websites"
@@ -43,7 +43,7 @@ const Services = ({ className }: ServicesProps) => {
           icon3alt="Shopify logo"
         />
         <ServicesCard
-          className="md:justify-self-end"
+          className="md:justify-self-end hover:-skew-y-1"
           mainIcon="terminal.svg"
           mainIconAlt="Computer terminal"
           title="Development of web applications"
@@ -55,19 +55,19 @@ const Services = ({ className }: ServicesProps) => {
           icon3alt="Angular logo"
         />
         <ServicesCard
-          className="md:justify-self-start"
+          className="md:justify-self-start hover:skew-y-1"
           mainIcon="robotic-arm.svg"
           mainIconAlt="Robotic arm"
           title="Automation of process and workflows using AI"
         />
         <ServicesCard
-          className="md:justify-self-end"
+          className="md:justify-self-end hover:-skew-y-1"
           mainIcon="json.svg"
           mainIconAlt="JSON data object"
           title="Development and integration of APIs"
         />
         <ServicesCard
-          className="md:justify-self-start"
+          className="md:justify-self-start hover:skew-y-1"
           mainIcon="unknown.svg"
           mainIconAlt="Unknown document"
           title="Contact us"

@@ -29,6 +29,7 @@ const WhatIs42 = ({ className }: WhatIs42Props) => {
           The school's philosophy fosters critical thinking, problem-solving,
           and collaboration.
         </p>
+        <p>To know more about the school click <a href="https://42luxembourg.lu/" className="underline">here</a>.</p>
       </div>
     </section>
   );

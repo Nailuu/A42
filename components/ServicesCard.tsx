@@ -28,11 +28,10 @@ const ServicesCard = ({
   subtitle,
 }: ServiceCardProps) => {
   return (
-    <a
-      href="#contact"
+    <div
       className={`${
         styles.services_card
-      } h-[120px] lg:h-[150px] xl:h-[180px] w-full max-w-[350px] lg:max-w-[400px] 2xl:max-w-full min-w-[280px] px-6 py-4 xl:py-6 rounded-xl flex flex-col justify-between transition-all hover:scale-[1.05] hover:-skew-y-1 cursor-pointer ${
+      } h-[120px] lg:h-[150px] xl:h-[180px] w-full max-w-[350px] lg:max-w-[400px] 2xl:max-w-full min-w-[280px] px-6 py-4 xl:py-6 rounded-xl flex flex-col justify-between transition-all hover:scale-[1.05] cursor-pointer ${
         className ?? ""
       }`}
     >
@@ -58,7 +57,7 @@ const ServicesCard = ({
           </p>
         )}
       </div>
-    </a>
+    </div>
   );
 };
 

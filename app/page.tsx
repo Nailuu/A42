@@ -43,7 +43,7 @@ const Home = () => {
           <WhyUs />
         </Container>
 
-        <Container className="snap-start lg:h-screen lg:flex lg:items-center lg:justify-center">
+        <Container className="snap-start mb-4 md:mb-8 lg:mb-12 lg:h-screen lg:flex lg:items-center lg:justify-center">
           <ContactForm />
         </Container>
 
