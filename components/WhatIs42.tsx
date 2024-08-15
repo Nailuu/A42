@@ -15,7 +15,7 @@ const WhatIs42 = ({ className }: WhatIs42Props) => {
           <img
             src="42logo2.svg"
             alt="42 school logo"
-            className="text-white inline h-10 md:h-14 lg:h-16 xl:h-20 w-10 md:w-14 lg:w-16 xl:w-20"
+            className="text-white inline h-10 md:h-14 lg:h-16 xl:h-20 w-10 md:w-14 lg:w-16 xl:w-20 transition-all delay-200 duration-200 hover:scale-[1.1] hover:skew-y-3 ease-in-out"
           />
         </a>{" "}
         ?

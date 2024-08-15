@@ -96,7 +96,7 @@ const ContactForm = ({ className }: ContactFormProps) => {
               </div>
               <div className="hidden xl:flex justify-end">
                 <img
-                  className="w-3/4"
+                  className="w-3/4 transition-all delay-200 duration-200 hover:scale-[1.1] hover:skew-y-1"
                   src="contact-form-illustration.svg"
                   alt="Two people talking through text messages"
                 />

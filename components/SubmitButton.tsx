@@ -9,7 +9,7 @@ const SubmitButton = () => {
     <button
       type="submit"
       disabled={pending}
-      className="flex justify-center items-center cursor-pointer bg-[#070C1B] hover:bg-[#061743] transition-all duration-150 disabled:bg-[#afafaf] text-white text-[11px] md:text-[12px] lg:text-base xl:text-lg py-2 md:py-2.5 lg:py-3 2xl:py-4 px-4 md:px-5 lg:px-8 rounded-md 2xl:rounded-lg w-40 md:w-48 lg:w-56 xl:w-64"
+      className="flex justify-center items-center cursor-pointer bg-[#070C1B] hover:bg-[#061743] transition-all duration-300 ease-in-out hover:skew-y-1 hover:scale-[1.1] disabled:bg-[#afafaf] text-white text-[12px] lg:text-base xl:text-lg 2xl:text-xl py-2.5 lg:py-3 2xl:py-4 px-5 lg:px-8 rounded-md 2xl:rounded-lg w-48 lg:w-56 xl:w-64 2xl:w-72"
     >
       {pending && (
         <svg
