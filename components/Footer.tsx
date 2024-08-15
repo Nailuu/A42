@@ -22,8 +22,8 @@ const Footer = ({ className }: FooterProps) => {
           </div>
         </div>
         <div className="w-full order-2 lg:order-3 flex flex-col md:flex-row lg:flex-col items-center gap-2 md:gap-6 lg:gap-2 md:justify-center lg:text-sm underline">
-          <a className="cursor-pointer order-1" href="/legal-informations">
-            Legal informations
+          <a className="cursor-pointer order-1" href="/legal-information">
+            Legal information
           </a>
           {/* <a className="cursor-pointer order-2 md:order-3 lg:order-2" href="/terms-and-conditions">
             Terms and conditions

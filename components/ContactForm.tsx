@@ -35,7 +35,7 @@ const ContactForm = ({ className }: ContactFormProps) => {
     setFormStatus(result);
 
     const form = document.querySelector("#form") as HTMLFormElement;
-    if (form && formStatus?.success) {
+    if (form && result.success) {
       form.reset();
     }
   };
