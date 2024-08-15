@@ -25,10 +25,10 @@ const Footer = ({ className }: FooterProps) => {
           <a className="cursor-pointer order-1" href="/legal-informations">
             Legal informations
           </a>
-          <a className="cursor-pointer order-2 md:order-3 lg:order-2" href="/terms-and-conditions">
+          {/* <a className="cursor-pointer order-2 md:order-3 lg:order-2" href="/terms-and-conditions">
             Terms and conditions
-          </a>
-          <a className="cursor-pointer order-3 md:order-2 lg:order-3" href="/cookies">
+          </a> */}
+          <a className="cursor-pointer order-2" href="/cookies">
             Cookies
           </a>
         </div>

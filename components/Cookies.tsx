@@ -22,9 +22,7 @@ const Cookies = () => {
       <p>
         Cookies do not typically contain any information that personally
         identifies a user, but personal information that we store about You may
-        be linked to the information stored in and obtained from Cookies. For
-        further information on how We use, store and keep your personal data
-        secure, see our Privacy Policy.
+        be linked to the information stored in and obtained from Cookies.
       </p>
       <p>
         We do not store sensitive personal information, such as mailing
