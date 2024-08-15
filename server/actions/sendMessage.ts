@@ -18,9 +18,7 @@ const sendMessage = async (formData: any) => {
         to: process.env.ASSOCIATION_EMAIL,
         replyTo: formData.email,
         subject: `[JR42] - New Contact Form Submission`,
-        html: `
-        <!DOCTYPE html>
-<html lang="en">
+        html: `<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -46,18 +44,27 @@ const sendMessage = async (formData: any) => {
         }
         p {
             line-height: 1.5;
+            margin: 0; /* Remove default margin for <p> tags */
+            padding: 10px; /* Add padding for better spacing */
+            border-radius: 4px; /* Round the corners */
         }
         .label {
             font-weight: bold;
         }
         .value {
-            margin-bottom: 15px;
+            background-color: #f0f0f0; /* Light gray background */
+            color: #333; /* Ensure text is readable */
         }
         .footer {
             text-align: center;
             margin-top: 20px;
             font-size: 12px;
             color: #888;
+        }
+        .break {
+            width: 100%;
+            margin-top: 40px;
+            margin-bottom: 20px;
         }
     </style>
 </head>
@@ -71,10 +78,12 @@ const sendMessage = async (formData: any) => {
         <p class="value">${formData.lastName}</p>
 
         <p class="label">Email:</p>
-        <p class="value"><a href="mailto: ${formData.email}">${formData.email}</a></p>
+        <p class="value"><a href="mailto:${formData.email}" style="color: #0044cc;">${formData.email}</a></p>
 
         <p class="label">Company:</p>
         <p class="value">${formData.company ? formData.company : "N/A"}</p>
+
+        <hr class="break">
 
         <p class="label">Subject:</p>
         <p class="value">${formData.title}</p>
@@ -83,9 +92,7 @@ const sendMessage = async (formData: any) => {
         <p class="value">${formData.message}</p>
     </div>
 </body>
-</html>
-
-        `
+</html>`
     };
   
     try {

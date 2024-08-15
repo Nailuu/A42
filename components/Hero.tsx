@@ -17,11 +17,13 @@ const Hero = ({ className }: HeroProps) => {
         </h2>
         <div className="text-[#192958] w-full md:w-full mb-2 md:mb-4 lg:mb-5 xl:mb-10 2xl:mb-12 font-medium text-xs md:text-sm lg:text-lg xl:text-xl 2xl:text-2xl">
           From
-          <img
-            className="mx-1 md:mx-1.25 lg:mx-1.5 xl:mx-2 w-4 md:w-5 lg:w-7 xl:w-9 h-4 md:h-5 lg:h-7 xl:h-9 inline"
-            alt="42 school logo"
-            src="/42logo.svg"
-          />
+          <a href="https://42luxembourg.lu/">
+            <img
+              className="mx-1 md:mx-1.25 lg:mx-1.5 xl:mx-2 w-4 md:w-5 lg:w-7 xl:w-9 h-4 md:h-5 lg:h-7 xl:h-9 inline"
+              alt="42 school logo"
+              src="/42logo.svg"
+            />
+          </a>
           Luxembourg coding school, shaping tomorrow's
           <span> </span>
           <span className="underline">Software Engineers</span>

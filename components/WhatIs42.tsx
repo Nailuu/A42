@@ -4,9 +4,20 @@ interface WhatIs42Props {
 
 const WhatIs42 = ({ className }: WhatIs42Props) => {
   return (
-    <section className={`text-white flex flex-col items-center gap-8 md:gap-12 lg:gap-16 xl:gap-24 py-12 md:py-16 lg:py-24 xl:py-36 ${className ?? ""}`}>
+    <section
+      className={`text-white flex flex-col items-center gap-8 md:gap-12 lg:gap-16 xl:gap-24 py-12 md:py-16 lg:py-24 xl:py-36 ${
+        className ?? ""
+      }`}
+    >
       <h2 className="font-bold text-4xl md:text-5xl lg:text-6xl xl:text-7xl">
-        What is <img src="42logo2.svg" alt="42 school logo" className="text-white inline h-10 md:h-14 lg:h-16 xl:h-20 w-10 md:w-14 lg:w-16 xl:w-20" />{" "}
+        What is{" "}
+        <a href="https://42luxembourg.lu/">
+          <img
+            src="42logo2.svg"
+            alt="42 school logo"
+            className="text-white inline h-10 md:h-14 lg:h-16 xl:h-20 w-10 md:w-14 lg:w-16 xl:w-20"
+          />
+        </a>{" "}
         ?
       </h2>
       <div className="w-full flex flex-col gap-4 xl:gap-8 md:text-[17px] md:font-medium xl:font-semibold lg:text-lg xl:text-xl">

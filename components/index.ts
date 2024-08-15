@@ -7,6 +7,7 @@ import WhoAreWe from "./WhoAreWe"
 import WhatIs42 from "./WhatIs42"
 import WhyUs from "./WhyUs"
 import ContactForm from "./ContactForm"
+import Cookies from "./Cookies"
 
 export {
     Header,
@@ -17,5 +18,6 @@ export {
     WhoAreWe,
     WhatIs42,
     WhyUs,
-    ContactForm
+    ContactForm,
+    Cookies
 }
