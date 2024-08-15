@@ -30,7 +30,7 @@ const Hero = ({ className }: HeroProps) => {
         </div>
         <a
           href="#contact"
-          className="flex justify-center cursor-pointer hover:underline bg-[#070C1B] text-white text-[11px] md:text-[12px] lg:text-base xl:text-lg 2xl:text-xl py-2 md:py-2.5 lg:py-3 2xl:py-4 px-4 md:px-5 lg:px-8 rounded-md 2xl:rounded-lg w-40 md:w-48 lg:w-56 xl:w-64 2xl:w-72"
+          className="flex justify-center cursor-pointer bg-[#070C1B] hover:bg-[#061743] transition-all duration-150 text-white text-[11px] md:text-[12px] lg:text-base xl:text-lg 2xl:text-xl py-2 md:py-2.5 lg:py-3 2xl:py-4 px-4 md:px-5 lg:px-8 rounded-md 2xl:rounded-lg w-40 md:w-48 lg:w-56 xl:w-64 2xl:w-72"
         >
           Discuss the project
         </a>
