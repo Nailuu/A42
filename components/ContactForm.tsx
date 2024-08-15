@@ -1,116 +1,139 @@
 "use client";
 
-import { divider } from "@nextui-org/react";
+import sendMessage from "@/server/actions/sendMessage";
+import FormInput from "./FormInput";
+import SubmitButton from "./SubmitButton";
+import { useState } from "react";
 
 interface ContactFormProps {
   className?: string;
 }
 
 const ContactForm = ({ className }: ContactFormProps) => {
-  const handleSubmit = async (event: any): Promise<void> => {
-    event.preventDefault();
+  const [formStatus, setFormStatus] = useState<{
+    success: boolean;
+    message: string;
+  } | null>(null);
 
-    const data = {
-      firstName: String(event.target.firstName.value),
-      lastName: String(event.target.lastName.value),
-      email: String(event.target.email.value),
-      company: String(event.target.company.value),
-      subject: String(event.target.subject.value),
-      message: String(event.target.message.value),
-    };
+  const handleSubmit = async () => {
+    const result = await sendMessage({
+      firstName: document.querySelector("#firstName")?.value,
+      lastName: document.querySelector("#lastName")?.value,
+      email: document.querySelector("#email")?.value,
+      company: document.querySelector("#company")?.value,
+      title: document.querySelector("#subject")?.value,
+      message: document.querySelector("#message")?.value,
+    });
 
-    console.log(data);
+    setFormStatus(result);
+
+    const form = document.querySelector("#form");
+    if (form && formStatus?.success) {
+      form.reset();
+    }
   };
 
   return (
     <>
-      <hr className="w-full border-t-2 mb-12"/>
+      <hr className="w-full border-t-2 mb-12 md:mb-16 lg:mb-24 xl:mb-32" />
       <section className={`text-[#070C1B] pb-4 ${className ?? ""}`}>
-        <div className="flex flex-col gap-2">
-          <h3 id="contact" className="font-bold text-lg">
+        <div className="flex flex-col gap-2 lg:mb-12 xl:mb-16">
+          <h3
+            id="contact"
+            className="font-bold text-lg md:text-xl lg:text-2xl xl:text-3xl"
+          >
             We'd love to hear about your project
           </h3>
-          <p className="text-[#848484] text-sm">
+          <p className="text-[#848484] text-sm md:text-base lg:text-lg xl:text-xl xl:w-3/4">
             Please provide details about your project and specific needs. Our
             team will review your information and get back to you with a
             personalized quote as soon as possible.
           </p>
         </div>
-        <form onSubmit={handleSubmit} className="mt-8">
-          <div className="flex flex-col gap-2 mb-4">
-            <div className="flex justify-between items-center">
-              <label htmlFor="firstName" className="font-semibold">
-                First Name<span className="superscript text-red-500">*</span>
-              </label>
-              <input
-                className="py-1 px-4 rounded-md bg-gray-100 border"
-                type="text"
-                autoComplete="off"
-                id="firstName"
-                placeholder="Jean"
-                required
-              />
+        <form id="form" action={handleSubmit} className="mt-8 flex">
+          <div className="flex flex-col gap-8 w-full max-w-[1200px]">
+            <div className="grid xl:grid-cols-2 items-center">
+              <div className="grid md:grid-cols-2 gap-4 lg:gap-8">
+                <FormInput
+                  label="First Name"
+                  type="text"
+                  placeholder="Jean"
+                  required={true}
+                  id="firstName"
+                />
+                <FormInput
+                  label="Last Name"
+                  type="text"
+                  placeholder="Dupont"
+                  required={true}
+                  id="lastName"
+                />
+                <FormInput
+                  label="Email"
+                  type="email"
+                  placeholder="dupont@post.lu"
+                  required={true}
+                  id="email"
+                />
+                <FormInput
+                  label="Company"
+                  type="text"
+                  placeholder="Dupont S.A."
+                  required={false}
+                  id="company"
+                />
+              </div>
+              <div className="hidden xl:flex justify-end">
+                <img
+                  className="w-3/4"
+                  src="contact-form-illustration.svg"
+                  alt="Two people talking through text messages"
+                />
+              </div>
             </div>
-            <div className="flex justify-between items-center">
-              <label htmlFor="lastName" className="font-semibold">
-                Last Name<span className="superscript text-red-500">*</span>
-              </label>
-              <input
-                className="py-1 px-4 rounded-md bg-gray-100 border"
-                type="text"
-                autoComplete="off"
-                id="lastName"
-                placeholder="Dupont"
-                required
-              />
+            <div className="flex flex-col gap-4 md:gap-4">
+              <div className="flex flex-col gap-2">
+                <label htmlFor="subject" className="font-semibold">
+                  Title<span className="superscript text-red-500">*</span>
+                </label>
+                <input
+                  className="py-1 px-4 w-full rounded-md bg-gray-100 h-[40px] md:h-[45px] xl:h-[50px]"
+                  type="text"
+                  autoComplete="off"
+                  id="subject"
+                  placeholder="Subject"
+                  minLength={15}
+                  required
+                />
+              </div>
+              <div className="flex flex-col gap-2">
+                <label htmlFor="message" className="font-semibold">
+                  Message<span className="superscript text-red-500">*</span>
+                </label>
+                <textarea
+                  className="py-1 px-4 rounded-md w-full bg-gray-100"
+                  rows={6}
+                  id="message"
+                  placeholder="Describe your project..."
+                  minLength={50}
+                  required
+                ></textarea>
+              </div>
+              <div className="flex gap-8 mt-4 items-center">
+                <SubmitButton />
+                {formStatus && formStatus.success && (
+                  <div className="text-green-800 font-semibold md:text-lg">
+                    {formStatus.message}
+                  </div>
+                )}
+                {formStatus && !formStatus.success && (
+                  <div className="text-red-800 font-semibold md:text-lg">
+                    {formStatus.message}
+                  </div>
+                )}
+              </div>
             </div>
-            <div className="flex justify-between items-center">
-              <label htmlFor="email" className="font-semibold">
-                Email<span className="superscript text-red-500">*</span>
-              </label>
-              <input
-                className="py-1 px-4 rounded-md bg-gray-100 border"
-                type="email"
-                autoComplete="off"
-                id="email"
-                placeholder="dupont@post.lu"
-                required
-              />
-            </div>
-            <div className="flex justify-between  items-center mb-6">
-              <label htmlFor="company" className="font-semibold">
-                Company
-              </label>
-              <input
-                className="py-1 px-4 rounded-md bg-gray-100 border"
-                type="text"
-                autoComplete="off"
-                id="company"
-                placeholder="Dupont S.A."
-              />
-            </div>
-            <input
-              className="py-1 px-4 rounded-md bg-gray-100 border"
-              type="text"
-              autoComplete="off"
-              id="subject"
-              placeholder="Subject"
-              required
-            />
-            <textarea
-              className="py-1 px-4 rounded-md bg-gray-100 border"
-              rows={6}
-              id="message"
-              placeholder="Describe your project..."
-              required
-            ></textarea>
           </div>
-          <button
-            type="submit"
-            className="flex justify-center cursor-pointer bg-[#070C1B] text-white text-[11px] md:text-[12px] lg:text-base xl:text-lg 2xl:text-xl py-2 md:py-2.5 lg:py-3 2xl:py-4 px-4 md:px-5 lg:px-8 rounded-md 2xl:rounded-lg w-40 md:w-48 lg:w-56 xl:w-64 2xl:w-72"
-          >
-            Send Message
-          </button>
         </form>
       </section>
     </>
