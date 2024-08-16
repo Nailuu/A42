@@ -4,7 +4,7 @@ const LegalInformation = () => {
   const president: string = "Anthony Kinzelin";
 
   return (
-    <div className="mt-8 md:mt-16 flex flex-col gap-4 text-ellipsis overflow-hidden font-medium xl:text-lg">
+    <div className="mt-8 md:mt-16 mb-16 flex flex-col gap-4 text-ellipsis overflow-hidden font-medium xl:text-lg">
       <div className="mb-4">
         <h1 className="font-bold text-xl md:text-2xl lg:text-3xl xl:text-4xl">
           Legal information

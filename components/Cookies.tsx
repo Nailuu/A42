@@ -9,8 +9,12 @@ const Cookies = () => {
   return (
     <div className="mt-8 md:mt-16 mb-16 md:mb-24 xl:mb-32 flex flex-col gap-4 text-ellipsis overflow-hidden font-medium xl:text-lg">
       <div className="mb-4">
-        <h1 className="font-bold text-xl md:text-2xl lg:text-3xl xl:text-4xl">Cookies Policy</h1>
-        <p className="text-sm xl:text-base text-gray-600">Last updated: August 15, 2024</p>
+        <h1 className="font-bold text-xl md:text-2xl lg:text-3xl xl:text-4xl">
+          Cookies Policy
+        </h1>
+        <p className="text-sm xl:text-base text-gray-600">
+          Last updated: August 15, 2024
+        </p>
       </div>
 
       <p>
@@ -243,12 +247,12 @@ const Cookies = () => {
         <h3 className="font-semibold text-lg xl:text-xl">Contact Us</h3>
         <p>
           If you have any questions about this Cookies Policy, You can contact
-          us:
+          us using the site's{" "}
+          <a className="underline" href="/#contact">
+            contact form
+          </a>
+          .
         </p>
-        By email:{" "}
-        <a className="underline" href={"mailto: " + cookies_contact_mail}>
-          {cookies_contact_mail}
-        </a>
       </div>
     </div>
   );
