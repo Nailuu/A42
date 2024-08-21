@@ -14,19 +14,19 @@ import styles from "../styles/styles.module.css";
 const Home = () => {
   return (
     <main className="overflow-hidden bg-white">
-      <div className="lg:h-screen lg:overflow-y-scroll scroll-smooth lg:snap-y lg:snap-mandatory">
-        <Container className="snap-start lg:h-screen lg:flex">
+      <div className="lg:min-h-screen lg:overflow-y-scroll scroll-smooth lg:snap-y lg:snap-mandatory">
+        <Container className="snap-start lg:min-h-screen lg:flex">
           <Header />
-          <Hero className="mt-8 lg:mt-8 mb-8 md:mb-12 lg:mb-0 lg:h-3/4" />
+          <Hero className="mt-8 lg:mt-8 mb-8 md:mb-12 lg:mb-24 lg:h-3/4" />
         </Container>
 
         <Container
           className={
-            "snap-start lg:h-screen lg:flex lg:items-center lg:justify-center mt-12 lg:mt-0 " +
+            "snap-start lg:min-h-screen lg:flex lg:items-center lg:justify-center mt-12 lg:mt-0 " +
             styles.background_gradient_dark_blue
           }
         >
-          <Services />
+          <Services className="lg:my-8"/>
         </Container>
 
         <Container className="snap-start">
@@ -43,7 +43,7 @@ const Home = () => {
           <WhyUs />
         </Container>
 
-        <Container className="snap-start mb-4 md:mb-8 lg:mb-12 lg:h-screen lg:flex lg:items-center lg:justify-center">
+        <Container className="snap-start mb-4 md:mb-8 lg:mb-12 lg:min-h-screen lg:flex lg:items-center lg:justify-center">
           <ContactForm />
         </Container>
 
