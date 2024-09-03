@@ -1,6 +1,6 @@
 const Cookies = () => {
-  const legalName: string = "42 Luxembourg Junior Enterprise ASBL";
-  const name: string = "42 Luxembourg Junior Enterprise";
+  const legalName: string = "42 Luxembourg Junior Entreprise ASBL";
+  const name: string = "42 Luxembourg Junior Entreprise";
   const address: string =
     "14, porte de France, L-4360 Esch-sur-Alzette, Luxembourg";
   const website_url: string = "https://junior.42luxembourg.lu";

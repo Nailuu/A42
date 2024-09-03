@@ -10,25 +10,25 @@ const LegalInformation = () => {
           Legal information
         </h1>
         <p className="text-sm xl:text-base text-gray-600">
-          Last updated: August 15, 2024
+          Last updated: September 3rd, 2024
         </p>
       </div>
       <div className="flex flex-col gap-6">
         <p>
           This website is managed by{" "}
           <span className="font-semibold">
-            42 Luxembourg Junior Enterprise ASBL
+            42 Luxembourg Junior Entreprise ASBL
           </span>
           , a non-profit association registered with the Luxembourg Business
           Register (LBR) under number{" "}
-          <span className="font-semibold">XXXXX</span>, whose registered office
+          <span className="font-semibold">F14628</span>, whose registered office
           is located at <span className="font-semibold">{address}</span> and
           represented by
           <span className="font-semibold"> {president}</span>, President.
         </p>
         <p>
           For any questions or information about this site or 42 Luxembourg
-          Junior Enterprise, you can leave a message using the site's{" "}
+          Junior Entreprise, you can leave a message using the site's{" "}
           <a className="underline" href="/#contact">
             contact form
           </a>

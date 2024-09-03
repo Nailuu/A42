@@ -8,13 +8,13 @@ const Footer = ({ className }: FooterProps) => {
       <div className="grid lg:grid-cols-3 items-center gap-8">
         <div className="flex gap-4 items-center justify-center order-1">
           <img
-            alt="42 Luxembourg Junior Enterprise Logo"
+            alt="42 Luxembourg Junior Entreprise Logo"
             src="/logo2.svg"
             className="h-14 w-14 lg:h-16 lg:w-16"
           />
           <div className="flex flex-col gap-1 w-fit">
             <h4 className="font-semibold text-sm md:text-base lg:text-xs xl:text-base">
-              42 Luxembourg Junior Enterprise ASBL
+              42 Luxembourg Junior Entreprise ASBL
             </h4>
             <p className="text-[#C1C8FF] text-sm lg:text-xs xl:text-sm">
               14, porte de France, L-4360, Esch-sur-Alzette, Luxembourg
