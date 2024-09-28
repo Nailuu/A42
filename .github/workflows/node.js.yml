@@ -37,3 +37,9 @@ jobs:
     
     - name: Build project
       run: npm run build --if-present
+
+    - name: Change directory to PM2 process
+      run: cd /home/junior/actions-runner/_work/JR42/JR42
+
+    - name: Restart PM2 process
+      run: pm2 restart 0
