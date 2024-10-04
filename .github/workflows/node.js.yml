@@ -16,13 +16,6 @@ jobs:
       matrix:
         node-version: [20.17.0]
 
-    env:
-      SMTP_HOST: ${{secrets.SMTP_HOST}}
-      SMTP_PORT: ${{secrets.SMTP_PORT}}
-      SMTP_USER: ${{secrets.SMTP_USER}}
-      SMTP_PASS: ${{secrets.SMTP_PASS}}
-      ASSOCIATION_EMAIL: ${{secrets.ASSOCIATION_EMAIL}}
-
     steps:
     - uses: actions/checkout@v4
     
@@ -34,6 +27,15 @@ jobs:
         
     - name: Install dependencies
       run: npm ci
+
+    - name: Create .env file
+      run: |
+        touch .env
+        echo SMTP_HOST=${{secrets.SMTP_HOST}} >> .env
+        echo SMTP_PORT=${{secrets.SMTP_PORT}} >> .env
+        echo SMTP_USER=${{secrets.SMTP_USER}} >> .env
+        echo SMTP_PASS=${{secrets.SMTP_PASS}} >> .env
+        echo ASSOCIATION_EMAIL=${{secrets.ASSOCIATION_EMAIL}} >> .env
     
     - name: Build project
       run: npm run build --if-present
