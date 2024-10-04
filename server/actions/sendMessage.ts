@@ -100,6 +100,8 @@ const sendMessage = async (formData: any) => {
         await transporter.sendMail(mail);
         return { success: true, message: "Email sent successfully." };
     } catch (error) {
+        console.log(mail);
+        console.error(error);
         return { success: false, message: "Failed to send email." };
     }
 };
