@@ -7,14 +7,12 @@ const sendMessage = async (formData: any) => {
     const transporter = nodemailer.createTransport({
         host: process.env.SMTP_HOST,
         port: process.env.SMTP_PORT,
-        secure: true,
+        secure: false,
         auth: {
           user: process.env.SMTP_USER,
           pass: process.env.SMTP_PASS,
         },
     } as SMTPTransport.Options);
-
-    console.log(transporter);
 
     const mail = {
         from: process.env.SMTP_USER,
@@ -97,13 +95,12 @@ const sendMessage = async (formData: any) => {
 </body>
 </html>`
     };
-
-    console.log(mail);
   
     try {
         await transporter.sendMail(mail);
         return { success: true, message: "Email sent successfully." };
     } catch (error) {
+        console.error(error);
         return { success: false, message: "Failed to send email." };
     }
 };
