@@ -14,6 +14,8 @@ const sendMessage = async (formData: any) => {
         },
     } as SMTPTransport.Options);
 
+    console.log(transporter);
+
     const mail = {
         from: process.env.SMTP_USER,
         to: process.env.ASSOCIATION_EMAIL,
@@ -95,6 +97,8 @@ const sendMessage = async (formData: any) => {
 </body>
 </html>`
     };
+
+    console.log(mail);
   
     try {
         await transporter.sendMail(mail);
