@@ -47,9 +47,8 @@ const ContactForm = ({ className }: ContactFormProps) => {
         className="w-full border-t-2 mb-12 md:mb-16 lg:mb-24 xl:mb-32 2xl:mb-24"
       />
       <section
-        className={`text-[#070C1B] pb-4 mb-8 lg:mb-12 xl:mb-16 ${
-          className ?? ""
-        }`}
+        className={`text-[#070C1B] pb-4 mb-8 lg:mb-12 xl:mb-16 ${className ?? ""
+          }`}
       >
         <div className="flex flex-col gap-2 lg:mb-12 xl:mb-16">
           <h3 className="font-bold text-lg md:text-xl lg:text-2xl xl:text-3xl">
@@ -61,11 +60,11 @@ const ContactForm = ({ className }: ContactFormProps) => {
             personalized quote as soon as possible.
           </p>
         </div>
-        {/* <div className="flex gap-2 mt-8 md:mt-4 lg:mt-0">
+        <div className="flex gap-2 mt-8 md:mt-4 lg:mt-0">
           <img src="mail.svg" className="fill-[#061743]" />
           <a className="text-[#061743] underline" href="mailto:junior42luxembourg@gmail.com">junior42luxembourg@gmail.com</a>
-        </div> */}
-        <form id="form" action={handleSubmit} className="mt-8 flex">
+        </div>
+        {/* <form id="form" action={handleSubmit} className="mt-8 flex">
           <div className="flex flex-col gap-8 w-full max-w-[1200px]">
             <div className="grid xl:grid-cols-2 items-center">
               <div className="grid md:grid-cols-2 gap-4 lg:gap-8">
@@ -149,7 +148,7 @@ const ContactForm = ({ className }: ContactFormProps) => {
               </div>
             </div>
           </div>
-        </form>
+        </form> */}
       </section>
     </>
   );
