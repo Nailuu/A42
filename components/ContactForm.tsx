@@ -116,7 +116,7 @@ const ContactForm = ({ className }: ContactFormProps) => {
                   autoComplete="off"
                   id="subject"
                   placeholder="Subject"
-                  minLength={15}
+                  minLength={5}
                   required
                 />
               </div>
@@ -129,7 +129,7 @@ const ContactForm = ({ className }: ContactFormProps) => {
                   rows={6}
                   id="message"
                   placeholder="Describe your project..."
-                  minLength={50}
+                  minLength={25}
                   required
                 ></textarea>
               </div>
