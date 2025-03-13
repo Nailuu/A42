@@ -29,19 +29,19 @@ const Home = () => {
           <Services className="lg:my-8"/>
         </Container>
 
-        <Container className="snap-start">
+        {/* <Container className="snap-start">
           <WhoAreWe />
-        </Container>
+        </Container> */}
 
-        <Container
+        {/* <Container
           className={"snap-start " + styles.background_gradient_dark_blue}
         >
           <WhatIs42 />
-        </Container>
+        </Container> */}
 
-        <Container className="snap-start">
+        {/* <Container className="snap-start">
           <WhyUs />
-        </Container>
+        </Container> */}
 
         <Container className="snap-start mb-4 md:mb-8 lg:mb-12 lg:min-h-screen lg:flex lg:items-center lg:justify-center">
           <ContactForm />

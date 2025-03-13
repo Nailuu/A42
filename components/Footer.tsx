@@ -14,10 +14,10 @@ const Footer = ({ className }: FooterProps) => {
           />
           <div className="flex flex-col gap-1 w-fit">
             <h4 className="font-semibold text-sm md:text-base lg:text-xs xl:text-base">
-              42 Luxembourg Junior Entreprise ASBL
+              A42 S.à r.l.-S. 
             </h4>
             <p className="text-[#C1C8FF] text-sm lg:text-xs xl:text-sm">
-              14, porte de France, L-4360, Esch-sur-Alzette, Luxembourg
+              20, rue de l'indépendance, L-3238 Bettembourg, Luxembourg
             </p>
           </div>
         </div>

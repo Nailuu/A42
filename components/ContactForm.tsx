@@ -65,9 +65,9 @@ const ContactForm = ({ className }: ContactFormProps) => {
           <img src="mail.svg" className="fill-[#061743]" />
           <a
             className="text-[#061743] underline"
-            href="mailto:junior42luxembourg@gmail.com"
+            href="mailto:julian.bendinelli@a42.lu"
           >
-            junior42luxembourg@gmail.com
+            julian.bendinelli@a42.lu
           </a>
         </div>
         {/* <form id="form" action={handleSubmit} className="mt-8 flex">

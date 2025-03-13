@@ -14,12 +14,12 @@ const Header = ({ className, showHome }: HeaderProps) => {
         <a href="/">
           <img
             className="w-8 md:w-10 lg:w-12 xl:w-16 h-8 md:h-10 lg:h-12 xl:h-16"
-            alt="42 Luxembourg Junior Company Logo"
+            // alt="42 Luxembourg Junior Company Logo"
             src="/logo.svg"
           />
         </a>
         <h1 className="font-bold text-xs md:text-sm lg:text-base xl:text-xl">
-          42 Luxembourg Junior Company
+          A42
         </h1>
       </div>
       <div className="hidden md:flex items-center gap-2 md:gap-6 lg:gap-8 xl:gap-12">

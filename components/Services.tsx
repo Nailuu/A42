@@ -71,7 +71,7 @@ const Services = ({ className }: ServicesProps) => {
           mainIcon="unknown.svg"
           mainIconAlt="Unknown document"
           title="Contact us"
-          subtitle="For any other projects, don’t hesitate to contact us. We will make sure to find the perfect profile for you."
+          subtitle="For any other projects, don’t hesitate to contact us."
           icon1="python.svg"
           icon1alt="Python logo"
           icon2="java.svg"

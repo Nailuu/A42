@@ -5,9 +5,9 @@ import "./globals.css";
 const jakarta = Plus_Jakarta_Sans({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "42 Luxembourg Junior Company",
+  title: "A42",
   description:
-    "42 Luxembourg Junior Company offers IT services at competitive rates. Our skilled students deliver quality results for your business needs.",
+    "A42 offers IT services at competitive rates. We deliver quality results for your business needs.",
 };
 
 export default function RootLayout({

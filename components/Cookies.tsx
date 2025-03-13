@@ -1,10 +1,10 @@
 const Cookies = () => {
-  const legalName: string = "42 Luxembourg Junior Entreprise ASBL";
-  const name: string = "42 Luxembourg Junior Entreprise";
+  const legalName: string = "A42 S.à r.l.-S.";
+  const name: string = "A42";
   const address: string =
-    "14, porte de France, L-4360 Esch-sur-Alzette, Luxembourg";
-  const website_url: string = "https://junior.42luxembourg.lu";
-  const cookies_contact_mail: string = "contact@junior.42luxembourg.lu";
+    "20, rue de l'indépendance, L-3238 Bettembourg, Luxembourg";
+  const website_url: string = "https://a42.lu";
+  const cookies_contact_mail: string = "julian.bendinelli@a42.lu";
 
   return (
     <div className="mt-8 md:mt-16 mb-16 md:mb-24 xl:mb-32 flex flex-col gap-4 text-ellipsis overflow-hidden font-medium xl:text-lg">
@@ -13,7 +13,7 @@ const Cookies = () => {
           Cookies Policy
         </h1>
         <p className="text-sm xl:text-base text-gray-600">
-          Last updated: August 15, 2024
+          Last updated: March 13th, 2025
         </p>
       </div>
 
