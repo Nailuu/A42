@@ -8,6 +8,14 @@ export const metadata: Metadata = {
   title: "A42",
   description:
     "A42 offers IT services at competitive rates. We deliver quality results for your business needs.",
+  icons: [
+    {
+      rel: 'icon',
+      type: 'image/png',
+      sizes: '32x32',
+      url: '/favicon-32x32.png',
+    },
+  ]
 };
 
 export default function RootLayout({
