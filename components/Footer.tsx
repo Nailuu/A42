@@ -34,7 +34,7 @@ const Footer = ({ className }: FooterProps) => {
         </div>
         <div className="order-3 lg:order-2 flex flex-col lg:gap-2 items-center">
           <p>© All Rights Reserved</p>
-          <p className="text-xs">
+          {/* <p className="text-xs">
             Designed by{" "}
             <a
               className="underline cursor-pointer"
@@ -42,7 +42,7 @@ const Footer = ({ className }: FooterProps) => {
             >
               Julian Bendinelli
             </a>
-          </p>
+          </p> */}
         </div>
       </div>
     </footer>

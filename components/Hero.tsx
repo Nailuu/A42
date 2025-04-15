@@ -24,9 +24,9 @@ const Hero = ({ className }: HeroProps) => {
               src="/42logo.svg"
             />
           </a>
-          Luxembourg coding school, shaping tomorrow's
-          <span> </span>
-          <span className="underline">Software Engineers</span>
+          Luxembourg coding school alumni
+          {/* <span> </span>
+          <span className="underline">Software Engineers</span> */}
         </div>
         <a
           href="#contact"

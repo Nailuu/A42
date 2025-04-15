@@ -18,9 +18,9 @@ const Header = ({ className, showHome }: HeaderProps) => {
             src="/logo.svg"
           />
         </a>
-        <h1 className="font-bold text-xs md:text-sm lg:text-base xl:text-xl">
+        {/* <h1 className="font-bold text-xs md:text-sm lg:text-base xl:text-xl">
           A42
-        </h1>
+        </h1> */}
       </div>
       <div className="hidden md:flex items-center gap-2 md:gap-6 lg:gap-8 xl:gap-12">
         {showHome && (
@@ -37,12 +37,12 @@ const Header = ({ className, showHome }: HeaderProps) => {
         >
           Services
         </a>
-        <a
+        {/* <a
           href="/#about"
           className="font-semibold xl:font-bold text-sm lg:text-base xl:text-lg hover:underline"
         >
           About us
-        </a>
+        </a> */}
         <a
           href="/#contact"
           className="py-2 xl:py-3 px-4 font-semibold text-xs lg:text-base xl:text-lg bg-[#070C1B] hover:bg-[#061743] transition-all duration-300 ease-in-out hover:skew-y-1 hover:scale-[1.1] text-white rounded-md w-28 lg:w-36 xl:w-44 flex justify-center cursor-pointer"
