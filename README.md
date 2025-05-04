@@ -1,5 +1,5 @@
 # JR42
-Next.js website for 42 Luxembourg Junior Entreprise
+Next.js website for A42
 
 ## Getting Started
 
