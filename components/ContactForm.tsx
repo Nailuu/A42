@@ -47,11 +47,11 @@ const ContactForm = ({ className }: ContactFormProps) => {
         className="w-full border-t-2 mb-12 md:mb-16 lg:mb-24 xl:mb-32 2xl:mb-24"
       />
       <section
-        className={`text-[#070C1B] pb-4 mb-8 lg:mb-12 xl:mb-16 ${
+        className={`text-[#070C1B] pb-4 mb-8 lg:mb-12 xl:mb-16 flex flex-col items-center justify-center${
           className ?? ""
         }`}
       >
-        <div className="flex flex-col gap-2 lg:mb-12 xl:mb-16">
+        <div className="flex flex-col gap-2 lg:mb-12 xl:mb-16 items-center text-center">
           <h3 className="font-bold text-lg md:text-xl lg:text-2xl xl:text-3xl">
             We'd love to hear about your project
           </h3>
@@ -139,7 +139,7 @@ const ContactForm = ({ className }: ContactFormProps) => {
                   required
                 ></textarea>
               </div>
-              <div className="flex gap-8 mt-4 items-center">
+              <div className="flex flex-col mt-4 items-center">
                 <SubmitButton />
                 {formStatus && formStatus.success && (
                   <div className="text-green-800 font-semibold md:text-lg">

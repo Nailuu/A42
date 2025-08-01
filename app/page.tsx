@@ -15,7 +15,7 @@ const Home = () => {
   return (
     <main className="overflow-hidden bg-white">
       <div className="lg:min-h-screen lg:overflow-y-scroll scroll-smooth lg:snap-y lg:snap-mandatory">
-        <Container className="snap-start lg:min-h-screen lg:flex">
+        <Container className="snap-start  lg:min-h-screen lg:flex  lg:justify-center"> {/*"snap-start lg:min-h-screen lg:flex">*/}
           <Header />
           <Hero className="mt-8 lg:mt-8 mb-8 md:mb-12 lg:mb-24 lg:h-3/4" />
         </Container>
