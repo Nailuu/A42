@@ -48,7 +48,7 @@ const Home = () => {
           <ContactForm />
         </Container>
 
-        <Container className="snap-start mb-4 md:mb-8 lg:mb-12 w-full lg:min-h-screen lg:flex lg:items-center lg:justify-center" internalClassName="h-screen">
+        <Container className="snap-start mb-4 md:mb-8 lg:mb-12 w-full lg:min-h-screen lg:flex lg:items-center lg:justify-center" internalClassName="w-full max-w-screen h-screen">
           <Calendly/>
         </Container>
 
