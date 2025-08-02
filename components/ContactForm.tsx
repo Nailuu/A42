@@ -1,9 +1,8 @@
 "use client";
 
-//import sendMessage from "@/server/actions/sendMessage";
+import sendEmailJS from "@/server/actions/sendMessageEmailJs";
 import FormInput from "./FormInput";
 import SubmitButton from "./SubmitButton";
-import emailjs from '@emailjs/browser';
 import { useState, useRef } from "react";
 
 interface ContactFormProps {
@@ -11,8 +10,6 @@ interface ContactFormProps {
 }
 
 const ContactForm = ({ className }: ContactFormProps) => {
-  const formRef = useRef<HTMLFormElement>(null);
-  
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -60,22 +57,17 @@ const ContactForm = ({ className }: ContactFormProps) => {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     if (validateForm()) {
       setIsSubmitting(true);
 
-      // Replace these with your actual EmailJS credentials
-      const serviceId = 'service_8ap3nh8';
-      const templateId = 'template_beep3mr';
-      const publicKey = 'Mr8ptjGNYT5JTOdcA';
-
-      emailjs.sendForm(serviceId, templateId, formRef.current!, publicKey)
-        .then((result) => {
-          console.log("Email sent successfully: ", result.text);
+      try {
+        const result = await sendEmailJS(formData);
+        
+        if (result.success) {
           setFormSubmit(true);
-          setIsSubmitting(false);
           setFormData({
             firstName: '',
             lastName: '',
@@ -84,12 +76,15 @@ const ContactForm = ({ className }: ContactFormProps) => {
             title: '',
             message: '',
           });
-        })
-        .catch((error) => {
-          console.error("Failed to send email: ", error.text);
-          setIsSubmitting(false);
-          alert("Failed to send a message. Please try again later");
-        });
+        } else {
+          alert(result.message || "Failed to send message. Please try again later.");
+        }
+      } catch (error) {
+        console.error("Failed to send email: ", error);
+        alert("Failed to send message. Please try again later.");
+      } finally {
+        setIsSubmitting(false);
+      }
     }
   };
 
@@ -148,7 +143,7 @@ const ContactForm = ({ className }: ContactFormProps) => {
             julian.bendinelli@a42.lu
           </a>
         </div> */}
-        <form ref={formRef} onSubmit={handleSubmit} className="mt-8 flex">
+        <form onSubmit={handleSubmit} className="mt-8 flex">
           <div className="flex flex-col gap-8 w-full max-w-[1200px]">
             <div className="grid xl:grid-cols-2 items-center">
               <div className="grid md:grid-cols-2 gap-4 lg:gap-8">
