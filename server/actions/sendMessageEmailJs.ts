@@ -51,11 +51,11 @@ const sendEmailJS = async (formData: FormData): Promise<EmailJSResponse> => {
     } else {
       const errorText = await response.text();
       console.error("EmailJS API error:", errorText);
-      return { success: false, message: "Failed to send email." };
+      return { success: false, message: "Failed to send email. " + errorText };
     }
   } catch (error) {
     console.error("Server error sending email:", error);
-    return { success: false, message: "Failed to send email due to server error." };
+    return { success: false, message: "Failed to send email due to server error." + error  };
   }
 };
 
