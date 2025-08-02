@@ -1,44 +1,122 @@
 "use client";
 
-import sendMessage from "@/server/actions/sendMessage";
+//import sendMessage from "@/server/actions/sendMessage";
 import FormInput from "./FormInput";
 import SubmitButton from "./SubmitButton";
-import { useState } from "react";
+import emailjs from '@emailjs/browser';
+import { useState, useRef } from "react";
 
 interface ContactFormProps {
   className?: string;
 }
 
 const ContactForm = ({ className }: ContactFormProps) => {
-  const [formStatus, setFormStatus] = useState<{
-    success: boolean;
-    message: string;
-  } | null>(null);
+  const formRef = useRef<HTMLFormElement>(null);
+  
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    company: '',
+    title: '',
+    message: '',
+  });
 
-  const handleSubmit = async () => {
-    const result = await sendMessage({
-      firstName:
-        (document.querySelector("#firstName") as HTMLInputElement)?.value ?? "",
-      lastName:
-        (document.querySelector("#lastName") as HTMLInputElement)?.value ?? "",
-      email:
-        (document.querySelector("#email") as HTMLInputElement)?.value ?? "",
-      company:
-        (document.querySelector("#company") as HTMLInputElement)?.value ?? "",
-      title:
-        (document.querySelector("#subject") as HTMLInputElement)?.value ?? "",
-      message:
-        (document.querySelector("#message") as HTMLTextAreaElement)?.value ??
-        "",
-    });
+  const [formSubmit, setFormSubmit] = useState(false);
+  const [errors, setErrors] = useState<Record<string, string>>({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-    setFormStatus(result);
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prevState => ({ ...prevState, [name]: value }));
+  };
 
-    const form = document.querySelector("#form") as HTMLFormElement;
-    if (form && result.success) {
-      form.reset();
+  const validateForm = () => {
+    const newErrors: Record<string, string> = {};
+
+    if (!formData.firstName.trim()) {
+      newErrors.firstName = 'First name is required';
+    }
+
+    if (!formData.lastName.trim()) {
+      newErrors.lastName = 'Last name is required';
+    }
+
+    if (!formData.email.trim()) {
+      newErrors.email = 'Email is required';
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      newErrors.email = 'Email is invalid';
+    }
+
+    if (!formData.title.trim() || formData.title.length < 5) {
+      newErrors.title = 'Title is required and must be at least 5 characters';
+    }
+
+    if (!formData.message.trim() || formData.message.length < 25) {
+      newErrors.message = 'Message is required and must be at least 25 characters';
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (validateForm()) {
+      setIsSubmitting(true);
+
+      // Replace these with your actual EmailJS credentials
+      const serviceId = 'service_8ap3nh8';
+      const templateId = 'template_beep3mr';
+      const publicKey = 'Mr8ptjGNYT5JTOdcA';
+
+      emailjs.sendForm(serviceId, templateId, formRef.current!, publicKey)
+        .then((result) => {
+          console.log("Email sent successfully: ", result.text);
+          setFormSubmit(true);
+          setIsSubmitting(false);
+          setFormData({
+            firstName: '',
+            lastName: '',
+            email: '',
+            company: '',
+            title: '',
+            message: '',
+          });
+        })
+        .catch((error) => {
+          console.error("Failed to send email: ", error.text);
+          setIsSubmitting(false);
+          alert("Failed to send a message. Please try again later");
+        });
     }
   };
+
+  if (formSubmit) {
+    return (
+      <section className={`text-[#070C1B] pb-4 mb-8 lg:mb-12 xl:mb-16 flex flex-col items-center justify-center ${className ?? ""}`}>
+        <div className="max-w-md mx-auto my-16 p-6 bg-white rounded-lg shadow-xl">
+          <div className="text-center">
+            <div className="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-green-100 mb-4">
+              <svg className="h-6 w-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </div>
+            <h2 className="text-2xl font-bold text-gray-900 mb-2">Thank you!</h2>
+            <p className="text-gray-600 mb-6">Your message has been sent successfully.</p>
+            <p className="text-gray-600 mb-6">We'll get back to you as soon as possible.</p>
+            <button 
+              onClick={() => setFormSubmit(false)}
+              className="bg-[#070C1B] hover:bg-[#061743] text-white px-6 py-2 rounded-md transition-all duration-300"
+            >
+              Send Another Message
+            </button>
+          </div>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <>
@@ -70,38 +148,64 @@ const ContactForm = ({ className }: ContactFormProps) => {
             julian.bendinelli@a42.lu
           </a>
         </div> */}
-        <form id="form" action={handleSubmit} className="mt-8 flex">
+        <form ref={formRef} onSubmit={handleSubmit} className="mt-8 flex">
           <div className="flex flex-col gap-8 w-full max-w-[1200px]">
             <div className="grid xl:grid-cols-2 items-center">
               <div className="grid md:grid-cols-2 gap-4 lg:gap-8">
-                <FormInput
-                  label="First Name"
-                  type="text"
-                  placeholder="Jean"
-                  required={true}
-                  id="firstName"
-                />
-                <FormInput
-                  label="Last Name"
-                  type="text"
-                  placeholder="Dupont"
-                  required={true}
-                  id="lastName"
-                />
-                <FormInput
-                  label="Email"
-                  type="email"
-                  placeholder="dupont@post.lu"
-                  required={true}
-                  id="email"
-                />
-                <FormInput
-                  label="Company"
-                  type="text"
-                  placeholder="Dupont S.A."
-                  required={false}
-                  id="company"
-                />
+                <div>
+                  <FormInput
+                    label="First Name"
+                    type="text"
+                    placeholder="Jean"
+                    required={true}
+                    id="firstName"
+                    name="firstName"
+                    value={formData.firstName}
+                    onChange={handleChange}
+                  />
+                  {errors.firstName && <p className="text-red-600 text-sm mt-1">{errors.firstName}</p>}
+                </div>
+
+                <div>
+                  <FormInput
+                    label="Last Name"
+                    type="text"
+                    placeholder="Dupont"
+                    required={true}
+                    id="lastName"
+                    name="lastName"
+                    value={formData.lastName}
+                    onChange={handleChange}
+                  />
+                  {errors.lastName && <p className="text-red-600 text-sm mt-1">{errors.lastName}</p>}
+                </div>
+
+                <div>
+                  <FormInput
+                    label="Email"
+                    type="email"
+                    placeholder="dupont@post.lu"
+                    required={true}
+                    id="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                  />
+                  {errors.email && <p className="text-red-600 text-sm mt-1">{errors.email}</p>}
+                </div>
+
+                <div>
+                  <FormInput
+                    label="Company"
+                    type="text"
+                    placeholder="Dupont S.A."
+                    required={false}
+                    id="company"
+                    name="company"
+                    value={formData.company}
+                    onChange={handleChange}
+                  />
+                </div>
               </div>
               <div className="hidden xl:flex justify-end">
                 <img
@@ -120,11 +224,15 @@ const ContactForm = ({ className }: ContactFormProps) => {
                   className="py-1 px-4 w-full rounded-md bg-gray-100 h-[40px] md:h-[45px] xl:h-[50px]"
                   type="text"
                   autoComplete="off"
-                  id="subject"
-                  placeholder="Subject"
+                  id="title"
+                  name="title"
+                  placeholder="title"
+                  value={formData.title}
+                  onChange={handleChange}
                   minLength={5}
                   required
                 />
+                {errors.title && <p className="text-red-600 text-sm mt-1">{errors.title}</p>}
               </div>
               <div className="flex flex-col gap-2">
                 <label htmlFor="message" className="font-semibold">
@@ -134,23 +242,17 @@ const ContactForm = ({ className }: ContactFormProps) => {
                   className="py-1 px-4 rounded-md w-full bg-gray-100"
                   rows={6}
                   id="message"
+                  name="message"
                   placeholder="Describe your project..."
-                  minLength={25}
+                  value={formData.message}
+                  onChange={handleChange}
+                  minLength={15}
                   required
                 ></textarea>
+                {errors.message && <p className="text-red-600 text-sm mt-1">{errors.message}</p>}
               </div>
               <div className="flex flex-col mt-4 items-center">
-                <SubmitButton />
-                {formStatus && formStatus.success && (
-                  <div className="text-green-800 font-semibold md:text-lg">
-                    {formStatus.message}
-                  </div>
-                )}
-                {formStatus && !formStatus.success && (
-                  <div className="text-red-800 font-semibold md:text-lg">
-                    {formStatus.message}
-                  </div>
-                )}
+                <SubmitButton isSubmitting={isSubmitting}/>
               </div>
             </div>
           </div>

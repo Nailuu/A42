@@ -1,17 +1,18 @@
 "use client";
 
-import { useFormStatus } from "react-dom";
+interface SubmitButtonProps {
+  isSubmitting?: boolean;
+}
 
-const SubmitButton = () => {
-  const { pending } = useFormStatus();
+const SubmitButton = ({isSubmitting = false}: SubmitButtonProps) => {
 
   return (
     <button
       type="submit"
-      disabled={pending}
+      disabled={isSubmitting}
       className="flex justify-center items-center cursor-pointer bg-[#070C1B] hover:bg-[#061743] transition-all duration-300 ease-in-out hover:skew-y-1 hover:scale-[1.1] disabled:bg-[#afafaf] text-white text-[12px] lg:text-base xl:text-lg 2xl:text-xl py-2.5 lg:py-3 2xl:py-4 px-5 lg:px-8 rounded-md 2xl:rounded-lg w-48 lg:w-56 xl:w-64 2xl:w-72"
     >
-      {pending && (
+      {isSubmitting && (
         <svg
           className="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
           xmlns="http://www.w3.org/2000/svg"
@@ -33,7 +34,7 @@ const SubmitButton = () => {
           ></path>
         </svg>
       )}
-      { pending ? "Sending..." : "Send Message"}
+      { isSubmitting ? "Sending..." : "Send Message"}
     </button>
   );
 };
