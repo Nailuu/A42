@@ -134,15 +134,15 @@ const ContactForm = ({ className }: ContactFormProps) => {
             personalized quote as soon as possible.
           </p>
         </div>
-        {/* <div className="flex gap-2 mt-8 md:mt-4 lg:mt-0">
+        <div className="flex gap-2 mt-8 md:mt-4 lg:mt-0">
           <img src="mail.svg" className="fill-[#061743]" />
           <a
             className="text-[#061743] underline"
-            href="mailto:julian.bendinelli@a42.lu"
+            href="mailto:contact@a42.lu"
           >
-            julian.bendinelli@a42.lu
+            contact@a42.lu
           </a>
-        </div> */}
+        </div>
         <form onSubmit={handleSubmit} className="mt-8 flex">
           <div className="flex flex-col gap-8 w-full max-w-[1200px]">
             <div className="grid xl:grid-cols-2 items-center">

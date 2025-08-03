@@ -4,7 +4,7 @@ const Cookies = () => {
   const address: string =
     "20, rue de l'indépendance, L-3238 Bettembourg, Luxembourg";
   const website_url: string = "https://a42.lu";
-  const cookies_contact_mail: string = "julian.bendinelli@a42.lu";
+  const cookies_contact_mail: string = "contact@a42.lu";
 
   return (
     <div className="mt-8 md:mt-16 mb-16 md:mb-24 xl:mb-32 flex flex-col gap-4 text-ellipsis overflow-hidden font-medium xl:text-lg">
