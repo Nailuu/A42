@@ -19,8 +19,9 @@ const sendEmailJS = async (formData: FormData): Promise<EmailJSResponse> => {
     const serviceId = process.env.EMAILJS_SERVICE_ID;
     const templateId = process.env.EMAILJS_TEMPLATE_ID;
     const publicKey = process.env.EMAILJS_PUBLIC_KEY;
+    const privateKey = process.env.EMAILJS_PRIVATE_KEY;
 
-    if (!serviceId || !templateId || !publicKey) {
+    if (!serviceId || !templateId || !publicKey || !privateKey) {
       console.error("EmailJS credentials are missing");
       return { success: false, message: "Email service configuration error." };
     }
@@ -34,6 +35,7 @@ const sendEmailJS = async (formData: FormData): Promise<EmailJSResponse> => {
         service_id: serviceId,
         template_id: templateId,
         user_id: publicKey,
+        accessToken: privateKey,
         template_params: {
           firstname: formData.firstName,
           lastname: formData.lastName,
@@ -51,11 +53,11 @@ const sendEmailJS = async (formData: FormData): Promise<EmailJSResponse> => {
     } else {
       const errorText = await response.text();
       console.error("EmailJS API error:", errorText);
-      return { success: false, message: "Failed to send email." };
+      return { success: false, message: "Failed to send email. " + errorText };
     }
   } catch (error) {
     console.error("Server error sending email:", error);
-    return { success: false, message: "Failed to send email due to server error." };
+    return { success: false, message: "Failed to send email due to server error." + error  };
   }
 };
 
