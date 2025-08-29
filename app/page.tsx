@@ -27,7 +27,7 @@ const Home = () => {
             styles.background_gradient_dark_blue
           }
         >
-          <Services className="lg:my-8"/>
+          <Services className="lg:my-8" />
         </Container>
 
         {/* <Container className="snap-start">
@@ -48,9 +48,9 @@ const Home = () => {
           <ContactForm />
         </Container>
 
-        <Container className="snap-start mb-4 md:mb-8 lg:mb-12 w-full lg:min-h-screen lg:flex lg:items-center lg:justify-center" internalClassName="w-full max-w-screen h-screen">
+        {/* <Container className="snap-start mb-4 md:mb-8 lg:mb-12 w-full lg:min-h-screen lg:flex lg:items-center lg:justify-center" internalClassName="w-full max-w-screen h-screen">
           <Calendly/>
-        </Container>
+        </Container> */}
 
         <Container
           className={"snap-start " + styles.background_gradient_dark_blue}
